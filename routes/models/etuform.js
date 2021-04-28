@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Checkup = sequelize.define('checkup', {
+    const Etuform = sequelize.define('etuform', {
       nic: {
         type: Sequelize.STRING(12),
         primaryKey: true,
@@ -9,38 +9,35 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      temp: {
+      allergies: {
+        type: Sequelize.STRING(100),
+      },
+      observation: {
+        type: Sequelize.JSON,
+        allowNull: false,
+      },
+      pupils: {
+        type: Sequelize.STRING(20),
+      },
+      so2: {
         type: Sequelize.DECIMAL(6,3),
+      },
+      gcs: {
+        type: Sequelize.STRING(1),
         allowNull: false,
       },
-      pulse_rate: {
-        type: Sequelize.DECIMAL(10,7),
-        allowNull: false,
-      },
-      resp_rate: {
-        type: Sequelize.DECIMAL(4,2),
-      },
-      bp: {
-        type: Sequelize.STRING(10),
-        allowNull: false,
-      },
-      weight: {
-        type: Sequelize.DECIMAL(6,3),
-        allowNull: false,
-      },
-      height: {
-        type: Sequelize.DECIMAL(6,3),
-        allowNull: false,
-      },
-      bmi: {
-        type: Sequelize.DECIMAL(3,1),
-      },
-      urine: {
-        type: Sequelize.STRING(10),
-      },
-      nurse_nic: {
+      etu_doc: {
         type: Sequelize.STRING(12),
         allowNull: false,
+      },
+      test_depts: {
+        type: Sequelize.JSON,
+      },
+      severity: {
+        type: Sequelize.STRING(50),
+      },
+      asgn_ward: {
+        type: Sequelize.STRING(12),
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -50,5 +47,5 @@ module.exports = (sequelize, Sequelize) => {
       },
     });
   
-    return Checkup;
+    return Etuform;
   };
